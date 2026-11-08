@@ -1,0 +1,374 @@
+
+/* =================================
+   HERO - ESTRUCTURA GENERAL
+================================= */
+
+.hero {
+  width: min(100% - 64px, 1280px);
+  margin: 16px auto 0;
+  padding: 64px 40px;
+  background: var(--fondo-inverso);
+  color: var(--texto-inverso);
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.9fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.hero__content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =================================
+   TEMPORADA Y TEXTOS
+================================= */
+
+.hero__season {
+  display: inline-block;
+  padding: 5px 9px;
+  margin-bottom: 20px;
+  border-radius: var(--radio-sm);
+  background: #ffffff;
+  color: #141414;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero__title {
+  max-width: 700px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.hero__description {
+  max-width: 650px;
+  margin-bottom: 24px;
+  color: #bdbdbd;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* =================================
+   BUSCADOR
+================================= */
+
+.hero__search {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr)
+    minmax(0, 0.85fr)
+    minmax(0, 1fr)
+    auto;
+  align-items: center;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: var(--radio-lg);
+  color: #141414;
+}
+
+.hero__field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 5px 12px;
+  border-right: 1px solid var(--borde-sutil);
+}
+
+.hero__field:last-of-type {
+  border-right: none;
+}
+
+.hero__field-label {
+  margin-bottom: 4px;
+  color: #525252;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.hero__field-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: #525252;
+}
+
+.hero__field-control input,
+.hero__field-control select {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #141414;
+  font-size: 12px;
+}
+
+.hero__field-control select {
+  cursor: pointer;
+}
+
+.hero__field-control input::placeholder {
+  color: #525252;
+}
+
+.hero__search-button {
+  height: 42px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radio-sm);
+  background: var(--marca-primario);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.hero__search-button:hover {
+  background: var(--marca-primario-hover);
+}
+
+/* =================================
+   BÚSQUEDAS POPULARES
+================================= */
+
+.hero__popular {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+.hero__popular a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.hero__popular a:hover {
+  text-decoration: underline;
+}
+
+/* =================================
+   EVENTO DESTACADO
+================================= */
+
+.hero__featured {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 360px;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: var(--radio-lg);
+
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      #ffffff35 0 23%,
+      transparent 23.2%
+    ),
+    radial-gradient(
+      circle at 5% 100%,
+      #14141430 0 24%,
+      transparent 24.2%
+    ),
+    linear-gradient(135deg, #a99bbb, #b58d85);
+}
+
+.hero__featured::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  top: -110px;
+  right: -50px;
+  border-radius: 50%;
+  background: #ffffff20;
+}
+
+.hero__featured::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  bottom: -110px;
+  left: -70px;
+  border-radius: 50%;
+  background: #14141420;
+}
+
+.hero__featured-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 18px;
+  border-radius: var(--radio-md);
+  background: #ffffff;
+  color: #141414;
+}
+
+.hero__featured-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: #eeeeee;
+  color: #525252;
+  font-size: 10px;
+}
+
+.hero__featured-card h2 {
+  margin-bottom: 6px;
+  color: #141414;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.hero__featured-card p {
+  margin-bottom: 12px;
+  color: #525252;
+  font-size: 12px;
+}
+
+.hero__featured-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__featured-bottom div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__featured-bottom div span {
+  color: #525252;
+  font-size: 11px;
+}
+
+.hero__featured-bottom strong {
+  color: #141414;
+  font-size: 16px;
+}
+
+.hero__featured-bottom a {
+  padding: 10px 14px;
+  border-radius: var(--radio-sm);
+  background: #141414;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1050px) {
+  .hero {
+    padding: 48px 28px;
+  }
+
+  .hero__layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 28px;
+  }
+
+  .hero__title {
+    font-size: 38px;
+  }
+
+  .hero__search {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero__field {
+    border-right: none;
+    border-bottom: 1px solid var(--borde-sutil);
+    padding: 8px;
+  }
+}
+
+/* =================================
+   MÓVIL
+================================= */
+
+@media (max-width: 700px) {
+  .hero {
+    width: calc(100% - 24px);
+    margin-top: 8px;
+    padding: 32px 20px;
+  }
+
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero__season {
+    margin-bottom: 14px;
+  }
+
+  .hero__title {
+    margin-bottom: 14px;
+    font-size: 34px;
+    letter-spacing: -1px;
+  }
+
+  .hero__description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero__search {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .hero__field {
+    padding: 10px 8px;
+  }
+
+  .hero__field-control input,
+  .hero__field-control select {
+    font-size: 13px;
+  }
+
+  .hero__search-button {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .hero__popular {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .hero__featured {
+    min-height: 270px;
+    padding: 14px;
+  }
+
+  .hero__featured-card {
+    padding: 14px;
+  }
+
+  .hero__featured-card h2 {
+    font-size: 18px;
+  }
+}
