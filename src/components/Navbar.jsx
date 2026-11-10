@@ -1,97 +1,175 @@
+
 import { useState } from "react";
 import "./Navbar.css";
 
 const enlaces = [
-    "Explorar",
-    "Conciertos",
-    "Teatro",
-    "Deportes",
-    "Festivales",
+  { label: "Inicio", href: "#inicio" },
+  { label: "Explorar", href: "#explorar" },
 ];
 
+function SearchIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="10.8" cy="10.8" r="6.8" />
+      <path d="m16 16 5 5" />
+    </svg>
+  );
+}
+
+function AccessibilityIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="5" r="2" />
+      <path d="M4 9h16M12 9v4m0 0-4 8m4-8 4 8" />
+    </svg>
+  );
+}
+
 function Navbar() {
-    const [menuAbierto, setMenuAbierto] = useState(false);
-    const [preferenciasAbiertas, setPreferenciasAbiertas] = useState(false);
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const [idioma, setIdioma] = useState("ES");
+  const [accesibilidadAbierta, setAccesibilidadAbierta] = useState(false);
+  const [busquedaMovilAbierta, setBusquedaMovilAbierta] = useState(false);
 
-    return (
-        <header className="navbar">
-            <a className="navbar__logo" href="/" aria-label="Taquilla, inicio">
-                <span className="navbar__logo-icon" aria-hidden="true">
-                    T
-                </span>
-                <span>taquilla</span>
-            </a>
+  return (
+    <header className="navbar">
+      {/* Logo */}
+      <a className="navbar__logo" href="#inicio" aria-label="Taquilla, inicio">
+        <span className="navbar__logo-icon" aria-hidden="true">
+          T
+        </span>
+        <span>taquilla</span>
+      </a>
 
-            <nav
-                className={`navbar__nav ${menuAbierto ? "navbar__nav--abierto" : ""}`}
-                aria-label="Navegación principal"
-            >
-                {enlaces.map((enlace) => (
-                    <a
-                        key={enlace}
-                        href={`#${enlace.toLowerCase()}`}
-                        onClick={() => setMenuAbierto(false)}
-                    >
-                        {enlace}
-                    </a>
-                ))}
-            </nav>
+      {/* Navegación principal */}
+      <nav
+        className={`navbar__nav ${
+          menuAbierto ? "navbar__nav--abierto" : ""
+        }`}
+        aria-label="Navegación principal"
+      >
+        {enlaces.map((enlace) => (
+          <a
+            key={enlace.label}
+            href={enlace.href}
+            onClick={() => setMenuAbierto(false)}
+          >
+            {enlace.label}
+          </a>
+        ))}
+      </nav>
 
-            <div className="navbar__acciones">
-                <label className="navbar__busqueda">
-                    <span aria-hidden="true">⌕</span>
-                    <span className="sr-only">Buscar eventos</span>
-                    <input type="search" placeholder="Busca eventos y artistas" />
-                </label>
+      {/* Acciones de escritorio */}
+      <div className="navbar__acciones">
+        <label className="navbar__busqueda">
+          <SearchIcon />
+          <span className="sr-only">Buscar eventos y artistas</span>
+          <input
+            type="search"
+            placeholder="Busca eventos y artistas"
+          />
+        </label>
 
-                <div className="navbar__preferencias">
+        {/* Accesibilidad */}
+        <div className="navbar__accessibility-wrap">
+          <button
+            className="navbar__accessibility"
+            type="button"
+            aria-label="Opciones de accesibilidad"
+            aria-expanded={accesibilidadAbierta}
+            onClick={() =>
+              setAccesibilidadAbierta(!accesibilidadAbierta)
+            }
+          >
+            <AccessibilityIcon />
+          </button>
 
-                    <button
-                        className="navbar__idioma"
-                        type="button"
-                        aria-expanded={preferenciasAbiertas}
-                        onClick={() =>
-                            setPreferenciasAbiertas(!preferenciasAbiertas)
-                        }
-                    >
-                        <span>ES</span>
-                        <span className="navbar__moneda">COP</span>
-                        <span aria-hidden="true">⌄</span>
-                    </button>
-
-
-                    {preferenciasAbiertas && (
-                        <div className="navbar__preferencias-menu">
-                            <label htmlFor="idioma">Idioma</label>
-                            <select id="idioma" defaultValue="es">
-                                <option value="es">Español</option>
-                                <option value="en">English</option>
-                            </select>
-
-                            <label htmlFor="moneda">Moneda</label>
-                            <select id="moneda" defaultValue="cop">
-                                <option value="cop">COP - Peso colombiano</option>
-                            </select>
-                        </div>
-                    )}
-                </div>
-
-                <a className="navbar__login" href="#iniciar-sesion">
-                    Ingresar
-                </a>
+          {accesibilidadAbierta && (
+            <div className="navbar__accessibility-panel">
+              <strong>Accesibilidad</strong>
+              <p>
+                Aquí estarán disponibles las opciones de
+                accesibilidad de Taquilla.
+              </p>
             </div>
+          )}
+        </div>
 
-            <button
-                className="navbar__menu"
-                type="button"
-                aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
-                aria-expanded={menuAbierto}
-                onClick={() => setMenuAbierto(!menuAbierto)}
-            >
-                {menuAbierto ? "✕" : "☰"}
-            </button>
-        </header>
-    );
+        {/* Selector de idioma */}
+        <div className="navbar__language">
+          <button
+            type="button"
+            className={idioma === "ES" ? "is-active" : ""}
+            aria-pressed={idioma === "ES"}
+            onClick={() => setIdioma("ES")}
+          >
+            ES
+          </button>
+
+          <button
+            type="button"
+            className={idioma === "EN" ? "is-active" : ""}
+            aria-pressed={idioma === "EN"}
+            onClick={() => setIdioma("EN")}
+          >
+            EN
+          </button>
+        </div>
+
+        <a className="navbar__login" href="#iniciar-sesion">
+          Ingresar
+        </a>
+
+        <a className="navbar__register" href="#crear-cuenta">
+          Crear cuenta
+        </a>
+      </div>
+
+      {/* Acciones móviles */}
+      <div className="navbar__mobile-actions">
+        <button
+          className="navbar__mobile-search"
+          type="button"
+          aria-label="Abrir búsqueda"
+          aria-expanded={busquedaMovilAbierta}
+          onClick={() => {
+            setBusquedaMovilAbierta(!busquedaMovilAbierta);
+            setMenuAbierto(false);
+        }}
+        >
+          <SearchIcon />
+        </button>
+
+        <button
+          className="navbar__menu"
+          type="button"
+          aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuAbierto}
+          onClick={() => {
+            setMenuAbierto(!menuAbierto);
+            setBusquedaMovilAbierta(false);
+        }}
+        >
+          {menuAbierto ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* Búsqueda móvil */}
+      {busquedaMovilAbierta && (
+        <form
+          className="navbar__mobile-search-panel"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <input
+            type="search"
+            placeholder="Busca eventos y artistas"
+            aria-label="Buscar eventos y artistas"
+            autoFocus
+          />
+        </form>
+      )}
+    </header>
+  );
 }
 
 export default Navbar;
