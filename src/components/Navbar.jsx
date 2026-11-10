@@ -1,10 +1,11 @@
+import { translations } from "../data/translations";
 import AccessibilityPanel from "./AccessibilityPanel";
 import { useState } from "react";
 import "./Navbar.css";
 
 const enlaces = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Explorar", href: "#explorar" },
+  { key: "home", href: "#inicio" },
+  { key: "explore", href: "#explorar" },
 ];
 
 function SearchIcon() {
@@ -25,11 +26,16 @@ function AccessibilityIcon() {
   );
 }
 
-function Navbar({ preferences, onPreferenceChange }) {
-  const [menuAbierto, setMenuAbierto] = useState(false);
-  const [idioma, setIdioma] = useState("ES");
-  const [accesibilidadAbierta, setAccesibilidadAbierta] = useState(false);
-  const [busquedaMovilAbierta, setBusquedaMovilAbierta] = useState(false);
+function Navbar({
+  preferences,
+  onPreferenceChange,
+  idioma,
+  setIdioma,
+}) {  
+    const t = translations[idioma];
+    const [menuAbierto, setMenuAbierto] = useState(false);
+    const [accesibilidadAbierta, setAccesibilidadAbierta] = useState(false);
+    const [busquedaMovilAbierta, setBusquedaMovilAbierta] = useState(false);
 
   return (
     <header className="navbar">
@@ -49,13 +55,13 @@ function Navbar({ preferences, onPreferenceChange }) {
         aria-label="Navegación principal"
       >
         {enlaces.map((enlace) => (
-          <a
-            key={enlace.label}
+        <a
+            key={enlace.key}
             href={enlace.href}
             onClick={() => setMenuAbierto(false)}
-          >
-            {enlace.label}
-          </a>
+        >
+            {t.navbar[enlace.key]}
+        </a>
         ))}
       </nav>
 
@@ -66,8 +72,8 @@ function Navbar({ preferences, onPreferenceChange }) {
           <span className="sr-only">Buscar eventos y artistas</span>
           <input
             type="search"
-            placeholder="Busca eventos y artistas"
-          />
+            placeholder={t.navbar.search}
+            />
         </label>
 
         {/* Accesibilidad */}
@@ -115,11 +121,11 @@ function Navbar({ preferences, onPreferenceChange }) {
         </div>
 
         <a className="navbar__login" href="#iniciar-sesion">
-          Ingresar
+            {t.navbar.login}
         </a>
 
         <a className="navbar__register" href="#crear-cuenta">
-          Crear cuenta
+            {t.navbar.register}
         </a>
       </div>
 
@@ -160,7 +166,7 @@ function Navbar({ preferences, onPreferenceChange }) {
         >
           <input
             type="search"
-            placeholder="Busca eventos y artistas"
+            placeholder={t.navbar.search}
             aria-label="Buscar eventos y artistas"
             autoFocus
           />

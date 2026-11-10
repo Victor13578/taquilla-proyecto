@@ -21,6 +21,7 @@ const preferenciasIniciales = {
 };
 
 function App() {
+  const [idioma, setIdioma] = useState("ES");
   const [preferences, setPreferences] = useState(
     preferenciasIniciales
   );
@@ -53,6 +54,8 @@ function App() {
       <Navbar
         preferences={preferences}
         onPreferenceChange={handlePreferenceChange}
+        idioma={idioma}
+        setIdioma={setIdioma}
       />
 
       <main>
