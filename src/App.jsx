@@ -1,4 +1,4 @@
-
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CategoryList from "./components/CategoryList";
@@ -16,7 +16,6 @@ function App() {
 
       <main>
         <Hero />
-
         <CategoryList />
 
         <EventSection
@@ -33,6 +32,8 @@ function App() {
           events={upcomingEvents}
         />
       </main>
+
+      <Footer />
     </>
   );
 }
