@@ -1,14 +1,37 @@
 
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import CategoryList from "./components/CategoryList";
+import EventSection from "./components/EventSection";
+
+import {
+  featuredEvents,
+  upcomingEvents,
+} from "./data/events";
 
 function App() {
   return (
     <>
       <Navbar />
 
-      <main style={{ padding: "32px 4%", fontFamily: "Arial, sans-serif" }}>
-        <h1>Encuentra tu próximo evento</h1>
-        <p>Conciertos, teatro, deportes y mucho más.</p>
+      <main>
+        <Hero />
+
+        <CategoryList />
+
+        <EventSection
+          id="destacados"
+          title="Destacados de la semana"
+          description="Los eventos con más entradas vendidas en los últimos 7 días"
+          events={featuredEvents}
+        />
+
+        <EventSection
+          id="proximamente"
+          title="Próximamente en Manizales"
+          description="Cambia la ciudad desde el buscador"
+          events={upcomingEvents}
+        />
       </main>
     </>
   );
