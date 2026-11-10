@@ -1,4 +1,4 @@
-
+import AccessibilityPanel from "./AccessibilityPanel";
 import { useState } from "react";
 import "./Navbar.css";
 
@@ -25,7 +25,7 @@ function AccessibilityIcon() {
   );
 }
 
-function Navbar() {
+function Navbar({ preferences, onPreferenceChange }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [idioma, setIdioma] = useState("ES");
   const [accesibilidadAbierta, setAccesibilidadAbierta] = useState(false);
@@ -85,14 +85,12 @@ function Navbar() {
           </button>
 
           {accesibilidadAbierta && (
-            <div className="navbar__accessibility-panel">
-              <strong>Accesibilidad</strong>
-              <p>
-                Aquí estarán disponibles las opciones de
-                accesibilidad de Taquilla.
-              </p>
-            </div>
-          )}
+            <AccessibilityPanel
+                onClose={() => setAccesibilidadAbierta(false)}
+                preferences={preferences}
+                onPreferenceChange={onPreferenceChange}
+            />
+        )}
         </div>
 
         {/* Selector de idioma */}

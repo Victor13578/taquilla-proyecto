@@ -1,3 +1,6 @@
+import { useState } from "react";
+import "./App.css";
+
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -9,10 +12,48 @@ import {
   upcomingEvents,
 } from "./data/events";
 
+const preferenciasIniciales = {
+  fontSize: "normal",
+  highContrast: false,
+  reduceMotion: false,
+  underlineLinks: false,
+  increaseSpacing: false,
+};
+
 function App() {
+  const [preferences, setPreferences] = useState(
+    preferenciasIniciales
+  );
+
+  const handlePreferenceChange = (option, value) => {
+    if (option === "reset") {
+      setPreferences({ ...preferenciasIniciales });
+      return;
+    }
+
+    setPreferences((prev) => ({
+      ...prev,
+      [option]: value,
+    }));
+  };
+
+  const appClasses = [
+    "app",
+    `app--font-${preferences.fontSize}`,
+    preferences.highContrast && "app--high-contrast",
+    preferences.reduceMotion && "app--reduce-motion",
+    preferences.underlineLinks && "app--underline-links",
+    preferences.increaseSpacing && "app--increase-spacing",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <>
-      <Navbar />
+    <div className={appClasses}>
+      <Navbar
+        preferences={preferences}
+        onPreferenceChange={handlePreferenceChange}
+      />
 
       <main>
         <Hero />
@@ -34,7 +75,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

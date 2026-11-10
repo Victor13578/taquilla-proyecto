@@ -182,3 +182,106 @@
     border-right-color: var(--border);
   }
 }
+
+/*
+   ACCESSIBILITY - GLOBAL SETTINGS */
+/* Tamaño del texto - Configuración global */
+
+/* ACCESSIBILITY - FONT SIZE */
+
+.app {
+    --font-scale: 1;
+}
+
+.app--font-small {
+    --font-scale: 0.9;
+}
+
+.app--font-normal {
+    --font-scale: 1;
+}
+
+.app--font-large {
+    --font-scale: 1.2;
+}
+
+/* Escalar los tamaños definidos en cada componente */
+
+.app--font-small h1,
+.app--font-small h2,
+.app--font-small h3,
+.app--font-small p,
+.app--font-small span,
+.app--font-small a,
+.app--font-small button,
+.app--font-small label,
+.app--font-small input,
+.app--font-small strong,
+.app--font-small small {
+    font-size: 90% !important;
+}
+
+.app--font-large h1,
+.app--font-large h2,
+.app--font-large h3,
+.app--font-large p,
+.app--font-large span,
+.app--font-large a,
+.app--font-large button,
+.app--font-large label,
+.app--font-large input,
+.app--font-large strong,
+.app--font-large small {
+    font-size: 120% !important;
+}
+
+/* Alto contraste */
+
+.app--high-contrast {
+    color: #000000;
+}
+
+.app--high-contrast a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.app--high-contrast button {
+    outline-offset: 2px;
+}
+
+.app--high-contrast :focus-visible {
+    outline: 3px solid #005fcc;
+}
+
+/* Reducir movimiento */
+
+.app--reduce-motion *,
+.app--reduce-motion *::before,
+.app--reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+/* Subrayar enlaces */
+
+.app--underline-links a {
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+}
+
+/* Espaciado del texto */
+
+.app--increase-spacing p,
+.app--increase-spacing a,
+.app--increase-spacing h1,
+.app--increase-spacing h2,
+.app--increase-spacing h3,
+.app--increase-spacing label,
+.app--increase-spacing button {
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+}
+
