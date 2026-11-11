@@ -54,10 +54,48 @@ export const translations = {
         "Los eventos con más entradas vendidas en los últimos 7 días",
       upcoming: "Próximamente en Manizales",
       upcomingDescription: "Cambia la ciudad desde el buscador",
+      viewAll: "Ver todos",
+      from: "Desde",
       viewEvent: "Ver evento",
+      eventCount: "eventos",
     },
 
-    footer: {},
+    footer: {
+    description:
+        "Conciertos, teatro, deportes y festivales en un solo lugar. Explora eventos y consulta sus detalles.",
+
+    explore: "Explora",
+    home: "Inicio",
+    exploreEvents: "Explorar eventos",
+
+    account: "Tu cuenta",
+    login: "Iniciar sesión",
+    register: "Crear cuenta",
+
+    legal: "Legal",
+    terms: "Términos de uso",
+    privacy: "Política de privacidad",
+    accessibility: "Accesibilidad",
+
+    copyright: "© 2026 Taquilla. Proyecto académico.",
+    disclaimer: "Datos de ejemplo con fines académicos.",
+    },
+    eventData: {
+  categories: {
+    Concierto: "Concierto",
+    Festival: "Festival",
+    Teatro: "Teatro",
+    Deportes: "Deportes",
+    Comedia: "Comedia",
+    Familiar: "Familiar",
+  },
+
+  dates: {
+    Sáb: "Sáb",
+    Vie: "Vie",
+    Dom: "Dom",
+    },
+    },
   },
 
   EN: {
@@ -114,9 +152,47 @@ export const translations = {
         "The events with the most tickets sold in the last 7 days",
       upcoming: "Coming soon to Manizales",
       upcomingDescription: "Change the city using the search bar",
+      viewAll: "View all",
+      from: "From",
       viewEvent: "View event",
+      eventCount: "events",
     },
 
-    footer: {},
+footer: {
+  description:
+    "Concerts, theater, sports and festivals in one place. Explore events and find all their details.",
+
+  explore: "Explore",
+  home: "Home",
+  exploreEvents: "Explore events",
+
+  account: "Your account",
+  login: "Log in",
+  register: "Create account",
+
+  legal: "Legal",
+  terms: "Terms of use",
+  privacy: "Privacy policy",
+  accessibility: "Accessibility",
+
+  copyright: "© 2026 Taquilla. Academic project.",
+  disclaimer: "Sample data for academic purposes.",
+},
+    eventData: {
+  categories: {
+    Concierto: "Concert",
+    Festival: "Festival",
+    Teatro: "Theater",
+    Deportes: "Sports",
+    Comedia: "Comedy",
+    Familiar: "Family",
+  },
+
+  dates: {
+    Sáb: "Sat",
+    Vie: "Fri",
+    Dom: "Sun",
+    },
+    },
   },
 };

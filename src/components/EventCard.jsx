@@ -1,5 +1,6 @@
 
 import "./EventCard.css";
+import { translations } from "../data/translations";
 
 function CalendarIcon() {
   return (
@@ -19,7 +20,16 @@ function LocationIcon() {
   );
 }
 
-function EventCard({ event }) {
+function EventCard({ event, idioma }) {
+  const t = translations[idioma];
+  const eventTranslations = t.eventData;
+
+  const dateParts = event.date.split(" ");
+  const translatedDate = [
+    eventTranslations.dates[dateParts[0]] || dateParts[0],
+    ...dateParts.slice(1),
+  ].join(" ");
+
   return (
     <article className="event-card">
 
@@ -32,7 +42,7 @@ function EventCard({ event }) {
       <div className="event-card__content">
 
         <span className="event-card__category">
-          {event.category}
+          {eventTranslations.categories[event.category] || event.category}
         </span>
 
         <h3 className="event-card__title">
@@ -43,7 +53,7 @@ function EventCard({ event }) {
 
           <div className="event-card__detail">
             <CalendarIcon />
-            <span>{event.date}</span>
+            <span>{translatedDate}</span>
           </div>
 
           <div className="event-card__detail">
@@ -56,16 +66,16 @@ function EventCard({ event }) {
         <div className="event-card__footer">
 
           <div className="event-card__price">
-            <span>Desde</span>
+            <span>{t.events.from}</span>
             <strong>{event.price}</strong>
           </div>
 
           <a
             className="event-card__button"
             href={event.href || "#"}
-            aria-label={`Ver evento: ${event.title}`}
+            aria-label={`${t.events.viewEvent}: ${event.title}`}
           >
-            Ver evento
+            {t.events.viewEvent}
           </a>
 
         </div>

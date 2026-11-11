@@ -1,6 +1,9 @@
 import "./Footer.css";
+import { translations } from "../data/translations";
 
-function Footer() {
+function Footer({ idioma }) {
+  const t = translations[idioma].footer;
+
   return (
     <footer className="footer">
       <div className="footer__main">
@@ -11,36 +14,33 @@ function Footer() {
             <span>taquilla</span>
           </a>
 
-          <p>
-            Conciertos, teatro, deportes y festivales en un
-            solo lugar. Explora eventos y consulta sus detalles.
-          </p>
+          <p>{t.description}</p>
         </div>
 
-        <nav className="footer__column" aria-label="Explora">
-          <h3>Explora</h3>
-          <a href="#inicio">Inicio</a>
-          <a href="#explorar">Explorar eventos</a>
+        <nav className="footer__column" aria-label={t.explore}>
+          <h3>{t.explore}</h3>
+          <a href="#inicio">{t.home}</a>
+          <a href="#explorar">{t.exploreEvents}</a>
         </nav>
 
-        <nav className="footer__column" aria-label="Tu cuenta">
-          <h3>Tu cuenta</h3>
-          <a href="#iniciar-sesion">Iniciar sesión</a>
-          <a href="#crear-cuenta">Crear cuenta</a>
+        <nav className="footer__column" aria-label={t.account}>
+          <h3>{t.account}</h3>
+          <a href="#iniciar-sesion">{t.login}</a>
+          <a href="#crear-cuenta">{t.register}</a>
         </nav>
 
-        <nav className="footer__column" aria-label="Información legal">
-          <h3>Legal</h3>
-          <a href="#terminos">Términos de uso</a>
-          <a href="#privacidad">Política de privacidad</a>
-          <a href="#accesibilidad">Accesibilidad</a>
+        <nav className="footer__column" aria-label={t.legal}>
+          <h3>{t.legal}</h3>
+          <a href="#terminos">{t.terms}</a>
+          <a href="#privacidad">{t.privacy}</a>
+          <a href="#accesibilidad">{t.accessibility}</a>
         </nav>
 
       </div>
 
       <div className="footer__bottom">
-        <span>© 2026 Taquilla. Proyecto académico.</span>
-        <span>Datos de ejemplo con fines académicos.</span>
+        <span>{t.copyright}</span>
+        <span>{t.disclaimer}</span>
       </div>
     </footer>
   );

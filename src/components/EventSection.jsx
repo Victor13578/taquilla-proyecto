@@ -1,8 +1,10 @@
-
 import EventCard from "./EventCard";
+import { translations } from "../data/translations";
 import "./EventSection.css";
 
-function EventSection({ id, title, description, events }) {
+function EventSection({ id, title, description, events, idioma }) {
+  const t = translations[idioma].events;
+
   return (
     <section className="event-section" id={id}>
 
@@ -13,7 +15,7 @@ function EventSection({ id, title, description, events }) {
         </div>
 
         <a href={`#${id}`}>
-          Ver todos <span aria-hidden="true">→</span>
+          {t.viewAll} <span aria-hidden="true">→</span>
         </a>
       </header>
 
@@ -22,6 +24,7 @@ function EventSection({ id, title, description, events }) {
           <EventCard
             key={event.id}
             event={event}
+            idioma={idioma}
           />
         ))}
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { translations } from "./data/translations";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -63,20 +64,22 @@ function App() {
         <CategoryList idioma={idioma} />
         <EventSection
           id="destacados"
-          title="Destacados de la semana"
-          description="Los eventos con más entradas vendidas en los últimos 7 días"
+          title={translations[idioma].events.featured}
+          description={translations[idioma].events.featuredDescription}
           events={featuredEvents}
+          idioma={idioma}
         />
 
-        <EventSection
-          id="proximamente"
-          title="Próximamente en Manizales"
-          description="Cambia la ciudad desde el buscador"
-          events={upcomingEvents}
-        />
+            <EventSection
+      id="proximamente"
+      title={translations[idioma].events.upcoming}
+      description={translations[idioma].events.upcomingDescription}
+      events={upcomingEvents}
+      idioma={idioma}
+    />
       </main>
-
-      <Footer />
+ 
+      <Footer idioma={idioma} />
     </div>
   );
 }
