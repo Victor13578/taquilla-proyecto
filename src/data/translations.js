@@ -38,12 +38,14 @@ export const translations = {
     },
 
     categories: {
-      concerts: "Conciertos",
-      theater: "Teatro",
-      sports: "Deportes",
-      festivals: "Festivales",
-      comedy: "Comedia",
-      family: "Familiares",
+    concerts: "Conciertos",
+    theater: "Teatro",
+    sports: "Deportes",
+    festivals: "Festivales",
+    comedy: "Comedia",
+    family: "Familiares",
+    ariaLabel: "Categorías de eventos",
+    eventCount: "eventos",
     },
 
     events: {
@@ -96,12 +98,14 @@ export const translations = {
     },
 
     categories: {
-      concerts: "Concerts",
-      theater: "Theater",
-      sports: "Sports",
-      festivals: "Festivals",
-      comedy: "Comedy",
-      family: "Family",
+    concerts: "Concerts",
+    theater: "Theater",
+    sports: "Sports",
+    festivals: "Festivals",
+    comedy: "Comedy",
+    family: "Family",
+    ariaLabel: "Event categories",
+    eventCount: "events",
     },
 
     events: {

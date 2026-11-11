@@ -1,13 +1,13 @@
-
 import "./CategoryList.css";
+import { translations } from "../data/translations";
 
 const categories = [
-  { id: 1, name: "Conciertos", count: 42, icon: "music" },
-  { id: 2, name: "Teatro", count: 18, icon: "star" },
-  { id: 3, name: "Deportes", count: 12, icon: "trophy" },
-  { id: 4, name: "Festivales", count: 9, icon: "flag" },
-  { id: 5, name: "Comedia", count: 7, icon: "smile" },
-  { id: 6, name: "Familiares", count: 11, icon: "users" },
+  { id: 1, key: "concerts", count: 42, icon: "music" },
+  { id: 2, key: "theater", count: 18, icon: "star" },
+  { id: 3, key: "sports", count: 12, icon: "trophy" },
+  { id: 4, key: "festivals", count: 9, icon: "flag" },
+  { id: 5, key: "comedy", count: 7, icon: "smile" },
+  { id: 6, key: "family", count: 11, icon: "users" },
 ];
 
 function CategoryIcon({ name }) {
@@ -73,11 +73,13 @@ function CategoryIcon({ name }) {
   );
 }
 
-function CategoryList() {
+function CategoryList({ idioma }) {
+  const t = translations[idioma].categories;
+
   return (
     <section
       className="category-list"
-      aria-label="Categorías de eventos"
+      aria-label={t.ariaLabel}
     >
       {categories.map((category) => (
         <article
@@ -89,8 +91,11 @@ function CategoryList() {
           </div>
 
           <div className="category-card__info">
-            <h3>{category.name}</h3>
-            <span>{category.count} eventos</span>
+            <h3>{t[category.key]}</h3>
+
+            <span>
+              {category.count} {t.eventCount}
+            </span>
           </div>
         </article>
       ))}

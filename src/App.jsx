@@ -60,8 +60,7 @@ function App() {
 
       <main>
         <Hero idioma={idioma} />
-        <CategoryList />
-
+        <CategoryList idioma={idioma} />
         <EventSection
           id="destacados"
           title="Destacados de la semana"
