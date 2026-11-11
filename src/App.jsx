@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { translations } from "./data/translations";
 
@@ -22,8 +22,16 @@ const preferenciasIniciales = {
 };
 
 function App() {
-  const [idioma, setIdioma] = useState("ES");
-  const [preferences, setPreferences] = useState(
+  const [idioma, setIdioma] = useState(() => {
+  const idiomaGuardado = localStorage.getItem("idioma");
+
+  return idiomaGuardado === "EN" ? "EN" : "ES";
+});  
+useEffect(() => {
+    localStorage.setItem("idioma", idioma);
+  }, [idioma]);
+  
+const [preferences, setPreferences] = useState(
     preferenciasIniciales
   );
 
