@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CategoryList from "./components/CategoryList";
 import EventSection from "./components/EventSection";
+import { apiGet } from "./services/api";
 
 import {
   featuredEvents,
@@ -30,7 +31,31 @@ function App() {
 useEffect(() => {
     localStorage.setItem("idioma", idioma);
   }, [idioma]);
-  
+
+  // Prueba de conexión con la API
+useEffect(() => {
+  async function probarAPI() {
+    try {
+      const resultado = await apiGet("/eventos/destacados");
+
+      console.log("Respuesta completa:", resultado);
+      console.log("Eventos:", resultado.datos);
+
+      console.log(
+      "EVENTO COMPLETO:",
+      JSON.stringify(resultado.datos[0], null, 2)
+    );
+
+      console.table(resultado.datos);
+      console.log("Primer evento:", resultado.datos[0]);
+    } catch (error) {
+      console.error("Error al conectar con Taquilla:", error);
+    }
+  }
+
+  probarAPI();
+}, []);
+
 const [preferences, setPreferences] = useState(
     preferenciasIniciales
   );
