@@ -1,14 +1,10 @@
 
 import "./Hero.css";
+import { translations } from "../data/translations";
 
-const busquedasPopulares = [
-  "Salsa",
-  "Stand-up",
-  "Fútbol",
-  "Festivales fin de año",
-];
+function Hero({ idioma }) {
+  const t = translations[idioma].hero;
 
-function Hero() {
   const handleSearch = (event) => {
     event.preventDefault();
     // La conexión con la API se implementará después.
@@ -22,17 +18,15 @@ function Hero() {
         <div className="hero__content">
 
           <span className="hero__season">
-            Temporada nov - dic 2026
+            {t.season}
           </span>
 
           <h1 className="hero__title">
-            Tu próxima noche empieza aquí
+            {t.title}
           </h1>
 
           <p className="hero__description">
-            Conciertos, teatro, deportes y festivales.
-            Busca por categoría, fecha o ciudad y consulta
-            todos los detalles de cada evento.
+            {t.description}
           </p>
 
           {/* Buscador */}
@@ -41,55 +35,64 @@ function Hero() {
             onSubmit={handleSearch}
           >
             <label className="hero__field">
-              <span className="hero__field-label">Qué</span>
+              <span className="hero__field-label">
+                {t.what}
+              </span>
 
               <span className="hero__field-control">
                 <span aria-hidden="true">⌕</span>
                 <input
                   type="search"
-                  placeholder="Evento o artista"
-                  aria-label="Buscar evento o artista"
+                  placeholder={t.eventPlaceholder}
+                  aria-label={t.eventPlaceholder}
                 />
               </span>
             </label>
 
             <label className="hero__field">
-              <span className="hero__field-label">Dónde</span>
+              <span className="hero__field-label">
+                {t.where}
+              </span>
 
               <span className="hero__field-control">
                 <span aria-hidden="true">⌖</span>
                 <input
                   type="text"
-                  defaultValue="Manizales"
-                  aria-label="Ciudad"
+                  defaultValue={t.city}
+                  aria-label={t.where}
                 />
               </span>
             </label>
 
             <label className="hero__field">
-              <span className="hero__field-label">Cuándo</span>
+              <span className="hero__field-label">
+                {t.when}
+              </span>
 
               <span className="hero__field-control">
                 <span aria-hidden="true">▦</span>
-                <select defaultValue="any" aria-label="Fecha">
-                  <option value="any">Cualquier fecha</option>
-                  <option value="today">Hoy</option>
-                  <option value="week">Esta semana</option>
-                  <option value="month">Este mes</option>
+                <select defaultValue="any" aria-label={t.when}>
+                  <option value="any">{t.anyDate}</option>
+                  <option value="today">{t.today}</option>
+                  <option value="week">{t.week}</option>
+                  <option value="month">{t.month}</option>
                 </select>
               </span>
             </label>
 
-            <button className="hero__search-button" type="submit">
-              Buscar
+            <button
+              className="hero__search-button"
+              type="submit"
+            >
+              {t.search}
             </button>
           </form>
 
           {/* Búsquedas populares */}
           <div className="hero__popular">
-            <span>Populares:</span>
+            <span>{t.popular}</span>
 
-            {busquedasPopulares.map((busqueda) => (
+            {t.popularSearches.map((busqueda) => (
               <a
                 href="#eventos"
                 key={busqueda}
@@ -107,23 +110,23 @@ function Hero() {
           <div className="hero__featured-card">
 
             <span className="hero__featured-label">
-              Destacado
+              {t.featured}
             </span>
 
             <h2>Festival Niebla 2026</h2>
 
             <p>
-              Vie 20 nov · Parque del Bosque
+              {t.featuredDate}
             </p>
 
             <div className="hero__featured-bottom">
               <div>
-                <span>Desde</span>
+                <span>{t.from}</span>
                 <strong>$140.000</strong>
               </div>
 
               <a href="#festival-niebla">
-                Ver evento
+                {t.viewEvent}
               </a>
             </div>
 

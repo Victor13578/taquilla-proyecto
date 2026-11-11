@@ -59,7 +59,7 @@ function App() {
       />
 
       <main>
-        <Hero />
+        <Hero idioma={idioma} />
         <CategoryList />
 
         <EventSection

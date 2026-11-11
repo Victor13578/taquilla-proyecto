@@ -14,7 +14,27 @@ export const translations = {
       title: "Tu próxima noche empieza aquí",
       description:
         "Conciertos, teatro, deportes y festivales. Busca por categoría, fecha o ciudad y consulta todos los detalles de cada evento.",
+      what: "Qué",
+      where: "Dónde",
+      when: "Cuándo",
+      eventPlaceholder: "Evento o artista",
+      city: "Manizales",
+      anyDate: "Cualquier fecha",
+      today: "Hoy",
+      week: "Esta semana",
+      month: "Este mes",
+      search: "Buscar",
       popular: "Populares:",
+      popularSearches: [
+        "Salsa",
+        "Stand-up",
+        "Fútbol",
+        "Festivales fin de año",
+      ],
+      featured: "Destacado",
+      featuredDate: "Vie 20 nov · Parque del Bosque",
+      from: "Desde",
+      viewEvent: "Ver evento",
     },
 
     categories: {
@@ -35,9 +55,7 @@ export const translations = {
       viewEvent: "Ver evento",
     },
 
-    footer: {
-      // Agregaremos aquí los textos del footer.
-    },
+    footer: {},
   },
 
   EN: {
@@ -54,7 +72,27 @@ export const translations = {
       title: "Your next night starts here",
       description:
         "Concerts, theater, sports and festivals. Search by category, date or city and find all the details about each event.",
+      what: "What",
+      where: "Where",
+      when: "When",
+      eventPlaceholder: "Event or artist",
+      city: "Manizales",
+      anyDate: "Any date",
+      today: "Today",
+      week: "This week",
+      month: "This month",
+      search: "Search",
       popular: "Popular:",
+      popularSearches: [
+        "Salsa",
+        "Stand-up",
+        "Football",
+        "Year-end festivals",
+      ],
+      featured: "Featured",
+      featuredDate: "Fri Nov 20 · Parque del Bosque",
+      from: "From",
+      viewEvent: "View event",
     },
 
     categories: {
@@ -75,8 +113,6 @@ export const translations = {
       viewEvent: "View event",
     },
 
-    footer: {
-      // We will add the footer texts here.
-    },
+    footer: {},
   },
 };

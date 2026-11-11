@@ -1,7 +1,5 @@
-
-/* =================================
-   HERO - ESTRUCTURA GENERAL
-================================= */
+/*
+   HERO - ESTRUCTURA GENERAL */
 
 .hero {
   width: min(100% - 64px, 1280px);
