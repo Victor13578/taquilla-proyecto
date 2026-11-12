@@ -1,3 +1,4 @@
+import CookieConsent from "./components/CookieConsent";
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -42,6 +43,7 @@ function App() {
   const [eventosProximos, setEventosProximos] = useState([]);
   const [cargandoProximos, setCargandoProximos] = useState(true);
   const [errorProximos, setErrorProximos] = useState("");
+  const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
 
   // Guardar idioma
   useEffect(() => {
@@ -189,8 +191,16 @@ function App() {
 
       </main>
 
-      <Footer idioma={idioma} />
-    </div>
+    <Footer
+      idioma={idioma}
+      onManageCookies={() => setCookieSettingsOpen(true)}
+    />
+
+    <CookieConsent
+      idioma={idioma}
+      openSettings={cookieSettingsOpen}
+      onCloseSettings={() => setCookieSettingsOpen(false)}
+    />    </div>
   );
 }
 

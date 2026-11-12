@@ -1,7 +1,7 @@
 import "./Footer.css";
 import { translations } from "../data/translations";
 
-function Footer({ idioma }) {
+function Footer({ idioma, onManageCookies }) {
   const t = translations[idioma].footer;
 
   return (
@@ -21,6 +21,15 @@ function Footer({ idioma }) {
           <h3>{t.explore}</h3>
           <a href="#inicio">{t.home}</a>
           <a href="#explorar">{t.exploreEvents}</a>
+
+          <button
+          type="button"
+          className="footer__cookie-link"
+          onClick={onManageCookies}
+        >
+          {idioma === "ES" ? "Preferencias de cookies" : "Cookie preferences"}
+        </button>
+
         </nav>
 
         <nav className="footer__column" aria-label={t.account}>
