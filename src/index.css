@@ -5,31 +5,31 @@
 
 :root {
   /* Colores de fondo */
-  --fondo-pagina: #f7f7f7;
-  --fondo-superficie: #ffffff;
-  --fondo-sutil: #f0f0f0;
-  --fondo-inverso: #141414;
-  --fondo-inverso-2: #262626;
+  --fondo-pagina: #F8FAFC;
+  --fondo-superficie: #FFFFFF;
+  --fondo-sutil: #EAF2F5;
+  --fondo-inverso: #172554;
+  --fondo-inverso-2: #243B68;
 
   /* Marca */
-  --marca-primario: #141414;
-  --marca-primario-hover: #2e2e2e;
-  --marca-acento: #c9a24d;
+  --marca-primario: #0D9488;
+  --marca-primario-hover: #0F766E;
+  --marca-acento: #F97360;
 
   /* Texto */
-  --texto-principal: #141414;
-  --texto-secundario: #525252;
-  --texto-terciario: #6b6b6b;
-  --texto-inverso: #ffffff;
+  --texto-principal: #172554;
+  --texto-secundario: #526174;
+  --texto-terciario: #718096;
+  --texto-inverso: #FFFFFF;
 
   /* Bordes */
-  --borde-sutil: #e5e5e5;
-  --borde-fuerte: #8c8c8c;
+  --borde-sutil: #E2E8F0;
+  --borde-fuerte: #94A3B8;
 
   /* Estados */
-  --estado-exito: #1a7f4b;
-  --estado-alerta: #9a6700;
-  --estado-error: #c5221f;
+  --estado-exito: #15803D;
+  --estado-alerta: #A16207;
+  --estado-error: #DC2626;
 
   /* Espaciados */
   --espacio-1: 4px;
@@ -49,8 +49,8 @@
   --radio-completo: 999px;
 
   /* Sombras */
-  --sombra-tarjeta: 0 1px 2px 0 #1414140d;
-  --sombra-flotante: 0 8px 24px 0 #1414141a;
+  --sombra-tarjeta: 0 1px 2px 0 #1725540D;
+  --sombra-flotante: 0 8px 24px 0 #1725541A;
 
   /* Tipografía */
   font-family: 'Instrument Sans', sans-serif;

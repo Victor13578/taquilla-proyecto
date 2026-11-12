@@ -29,97 +29,43 @@
   background-size: cover;
 }
 
+
+/* NUEVA PALETA DE AFICHES */
+
+/* Conciertos - Coral y naranja */
 .event-card__artwork--plum {
   background:
     radial-gradient(
       circle at 78% 10%,
-      #ffffff35 0 31%,
+      #ffffff40 0 31%,
       transparent 31.5%
     ),
     radial-gradient(
       circle at 8% 110%,
-      #14141430 0 26%,
+      #17255445 0 26%,
       transparent 26.5%
     ),
-    linear-gradient(135deg, #aa9292, #504651);
+    linear-gradient(135deg, #F97360, #EA580C);
 }
 
+/* Festivales - Azul y celeste */
 .event-card__artwork--midnight {
   background:
     radial-gradient(
       circle at 83% 15%,
-      #ffffff35 0 30%,
+      #ffffff40 0 30%,
       transparent 30.5%
     ),
     radial-gradient(
       circle at 5% 110%,
-      #00000040 0 30%,
+      #17255450 0 30%,
       transparent 30.5%
     ),
-    linear-gradient(135deg, #647c9b, #17181d);
+    linear-gradient(135deg, #2563EB, #0EA5E9);
 }
 
+/* Teatro - Azul noche y violeta */
 .event-card__artwork--sand {
-  background:
-    radial-gradient(
-      circle at 82% 5%,
-      #ffffff35 0 30%,
-      transparent 30.5%
-    ),
-    radial-gradient(
-      circle at 5% 110%,
-      #14141425 0 25%,
-      transparent 25.5%
-    ),
-    linear-gradient(135deg, #c0b18e, #ad8280);
-}
-
-.event-card__artwork--forest {
-  background:
-    radial-gradient(
-      circle at 80% 10%,
-      #ffffff35 0 29%,
-      transparent 29.5%
-    ),
-    radial-gradient(
-      circle at 8% 110%,
-      #00000035 0 28%,
-      transparent 28.5%
-    ),
-    linear-gradient(135deg, #5b806e, #182f30);
-}
-
-.event-card__artwork--rose {
-  background:
-    radial-gradient(
-      circle at 80% 10%,
-      #ffffff35 0 30%,
-      transparent 30.5%
-    ),
-    radial-gradient(
-      circle at 5% 110%,
-      #14141430 0 25%,
-      transparent 25.5%
-    ),
-    linear-gradient(135deg, #c09ba1, #9f7d84);
-}
-
-.event-card__artwork--lavender {
-  background:
-    radial-gradient(
-      circle at 85% 5%,
-      #ffffff40 0 32%,
-      transparent 32.5%
-    ),
-    radial-gradient(
-      circle at 5% 110%,
-      #14141435 0 27%,
-      transparent 27.5%
-    ),
-    linear-gradient(135deg, #a59ab6, #514c64);
-}
-
-.event-card__artwork--gold {
   background:
     radial-gradient(
       circle at 82% 5%,
@@ -128,26 +74,92 @@
     ),
     radial-gradient(
       circle at 5% 110%,
-      #14141425 0 26%,
-      transparent 26.5%
+      #17255450 0 25%,
+      transparent 25.5%
     ),
-    linear-gradient(135deg, #c7b38f, #9d9472);
+    linear-gradient(135deg, #475569, #312E81);
 }
 
-.event-card__artwork--blue {
+/* Deportes - Turquesa y verde */
+.event-card__artwork--forest {
   background:
     radial-gradient(
-      circle at 82% 5%,
-      #ffffff35 0 30%,
+      circle at 80% 10%,
+      #ffffff40 0 29%,
+      transparent 29.5%
+    ),
+    radial-gradient(
+      circle at 8% 110%,
+      #17255445 0 28%,
+      transparent 28.5%
+    ),
+    linear-gradient(135deg, #0D9488, #166534);
+}
+
+/* Conciertos - Rosa coral */
+.event-card__artwork--rose {
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      #ffffff40 0 30%,
       transparent 30.5%
     ),
     radial-gradient(
       circle at 5% 110%,
-      #00000035 0 26%,
+      #17255440 0 25%,
+      transparent 25.5%
+    ),
+    linear-gradient(135deg, #FB7185, #F97360);
+}
+
+/* Comedia - Amarillo y coral */
+.event-card__artwork--lavender {
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      #ffffff50 0 32%,
+      transparent 32.5%
+    ),
+    radial-gradient(
+      circle at 5% 110%,
+      #17255440 0 27%,
+      transparent 27.5%
+    ),
+    linear-gradient(135deg, #FBBF24, #F97360);
+}
+
+/* Conciertos - Turquesa y dorado */
+.event-card__artwork--gold {
+  background:
+    radial-gradient(
+      circle at 82% 5%,
+      #ffffff45 0 30%,
+      transparent 30.5%
+    ),
+    radial-gradient(
+      circle at 5% 110%,
+      #17255440 0 26%,
       transparent 26.5%
     ),
-    linear-gradient(135deg, #627d9c, #25394c);
+    linear-gradient(135deg, #14B8A6, #0F766E);
 }
+
+/* Familiares - Celeste y turquesa */
+.event-card__artwork--blue {
+  background:
+    radial-gradient(
+      circle at 82% 5%,
+      #ffffff45 0 30%,
+      transparent 30.5%
+    ),
+    radial-gradient(
+      circle at 5% 110%,
+      #17255440 0 26%,
+      transparent 26.5%
+    ),
+    linear-gradient(135deg, #38BDF8, #0D9488);
+}
+
 
 /* CARD CONTENT */
 
@@ -243,21 +255,22 @@
 
   padding: 7px 12px;
 
-  border: 1px solid var(--borde-fuerte);
+  border: 1px solid var(--marca-primario);
   border-radius: var(--radio-sm);
-  background: #ffffff;
+  background: var(--marca-primario);
 
-  color: var(--texto-principal);
+  color: #ffffff;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
 
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .event-card__button:hover {
-  background: var(--fondo-sutil);
+  background: var(--marca-primario-hover);
+  transform: translateY(-1px);
 }
 
 /* MOBILE */
